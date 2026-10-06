@@ -1,26 +1,186 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * English: SF Pro on Apple devices, Inter elsewhere.
+ * Arabic: Readex Pro everywhere (see :lang(ar) below).
+ */
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", var(--font-inter),
+    var(--font-readex), system-ui, sans-serif;
+  --font-arabic: var(--font-readex), var(--font-inter), sans-serif;
+
+  --color-ink: #000000;
+  --color-ink-soft: #0b0b0d;
+  --color-panel: #161617;
+  --color-panel-2: #1d1d1f;
+  --color-paper: #f5f5f7;
+  --color-fg: #f5f5f7;
+  --color-muted: #86868b;
+  --color-line: #2a2a2d;
+  --color-accent: #22aaf5;
+  --color-accent-strong: #2f5bf0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--color-ink);
+  color: var(--color-fg);
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  background: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Tight Apple tracking only for Latin — letter-spacing breaks Arabic joining. */
+:lang(en) .tracking-display {
+  letter-spacing: -0.03em;
+}
+:lang(en) .tracking-title {
+  letter-spacing: -0.015em;
+}
+:lang(ar) .tracking-display,
+:lang(ar) .tracking-title {
+  letter-spacing: 0;
+}
+:lang(ar) body {
+  font-family: var(--font-arabic);
+  line-height: 1.7;
+}
+
+/* Metallic headline gradient, like Apple's Pro pages. */
+.text-titanium {
+  background: linear-gradient(180deg, #ffffff 0%, #d2d2d7 55%, #8e8e93 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(90deg, #00d4f5, #1fa0f5 45%, #3f4cf5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+::selection {
+  background: rgba(34, 170, 245, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@keyframes marquee-rtl {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+[dir="rtl"] .animate-marquee {
+  animation-name: marquee-rtl;
+}
+
+/* Blog article typography (HTML rendered from Markdown). */
+.prose-article {
+  font-size: 19px;
+  line-height: 1.85;
+  color: rgb(245 245 247 / 0.86);
+}
+.prose-article > * + * {
+  margin-top: 1.1em;
+}
+.prose-article h2 {
+  margin-top: 2em;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-fg);
+}
+.prose-article h3 {
+  margin-top: 1.6em;
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--color-fg);
+}
+.prose-article strong {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+.prose-article a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.prose-article ul,
+.prose-article ol {
+  padding-inline-start: 1.4em;
+}
+.prose-article ul {
+  list-style: disc;
+}
+.prose-article ol {
+  list-style: decimal;
+}
+.prose-article li + li {
+  margin-top: 0.45em;
+}
+.prose-article li::marker {
+  color: var(--color-accent);
+}
+.prose-article blockquote {
+  border-inline-start: 3px solid var(--color-accent);
+  padding-inline-start: 1em;
+  color: var(--color-fg);
+}
+.prose-article table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--color-panel);
+  font-size: 17px;
+}
+.prose-article th,
+.prose-article td {
+  padding: 14px 18px;
+  text-align: start;
+  border-bottom: 1px solid var(--color-line);
+}
+.prose-article th {
+  color: var(--color-fg);
+  font-weight: 600;
+}
+.prose-article tr:last-child td {
+  border-bottom: 0;
+}
+@media (max-width: 640px) {
+  .prose-article {
+    font-size: 17px;
+  }
+  .prose-article h2 {
+    font-size: 25px;
+  }
 }

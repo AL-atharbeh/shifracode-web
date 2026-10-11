@@ -3,6 +3,7 @@ title: "WhatsApp AI Agents: A Customer-Service Employee That Works 24/7"
 description: How an AI agent answers your store's customers on WhatsApp and Instagram around the clock — and when it hands the chat to a human.
 date: 2026-10-04
 tags: AI, WhatsApp, customer service
+cover: chat
 colors: #34d399, #0f9f75
 ---
 

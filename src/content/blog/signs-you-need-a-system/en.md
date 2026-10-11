@@ -3,6 +3,7 @@ title: 5 Signs Your Business Needs a Digital System
 description: A notebook and a spreadsheet are fine at the start — but these five signs mean it's time for a digital system to run your business.
 date: 2026-10-02
 tags: systems, SaaS, business management
+cover: system
 colors: #d4a94f, #a8802f
 ---
 

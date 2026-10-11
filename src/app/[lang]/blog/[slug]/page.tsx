@@ -3,10 +3,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { formatDate, getPost, getPosts, getPostSlugs } from "@/lib/blog";
+import { formatDate, getPost, getPosts, getPostSlugs, readingTime } from "@/lib/blog";
 import { site, whatsappLink } from "@/content/site";
 import { alternatesFor, jsonLdString } from "@/lib/seo";
 import PostCard from "@/components/ui/PostCard";
+import BlogCover from "@/components/ui/BlogCover";
+import ReadingProgress from "@/components/ui/ReadingProgress";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) =>
@@ -66,7 +68,7 @@ export default async function BlogPost({ params }: PageProps<"/[lang]/blog/[slug
     <article className="bg-ink">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
 
-      <header className="relative overflow-hidden px-6 pb-16 pt-32 text-center sm:pt-40">
+      <header className="relative overflow-hidden px-6 pb-12 pt-32 text-center sm:pt-40">
         <div
           aria-hidden
           className="pointer-events-none absolute left-1/2 top-0 h-[60vmin] w-[90vmin] -translate-x-1/2 rounded-full opacity-40 blur-[100px]"
@@ -77,7 +79,7 @@ export default async function BlogPost({ params }: PageProps<"/[lang]/blog/[slug
             {lang === "ar" ? "›" : "‹"} {t.back}
           </Link>
           <p className="mt-8 text-[15px] text-muted">
-            {formatDate(post.date, lang)} · {post.readingMinutes} {t.minutes}
+            {formatDate(post.date, lang)} · {readingTime(post.readingMinutes, lang)}
           </p>
           <h1 className="tracking-display mx-auto mt-3 max-w-[860px] text-[36px] font-semibold leading-[1.15] sm:text-[56px]">
             {post.title}
@@ -93,7 +95,22 @@ export default async function BlogPost({ params }: PageProps<"/[lang]/blog/[slug
         </div>
       </header>
 
-      <div className="prose-article mx-auto max-w-[720px] px-6 pb-20" dangerouslySetInnerHTML={{ __html: post.html }} />
+      <div className="mx-auto max-w-[1024px] px-4 pb-16 sm:px-6">
+        <BlogCover
+          variant={post.cover}
+          colors={post.colors}
+          lang={lang}
+          priority
+          className="aspect-[4/3] rounded-[32px] sm:aspect-[16/8]"
+        />
+      </div>
+
+      <ReadingProgress target="#article-body" />
+      <div
+        id="article-body"
+        className="prose-article mx-auto max-w-[720px] px-6 pb-20"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
 
       <section data-abu="contact" className="mx-4 mb-20 rounded-[32px] bg-panel px-6 py-16 text-center sm:mx-auto sm:max-w-[1024px]">
         <h2 className="tracking-display text-gradient-brand pb-2 text-[36px] font-semibold sm:text-[56px]">{t.ctaTitle}</h2>

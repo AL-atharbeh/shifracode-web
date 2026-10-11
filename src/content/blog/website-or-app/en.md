@@ -3,6 +3,7 @@ title: Website or Mobile App? A Quick Guide for Business Owners
 description: Does your business need a website, a mobile app, or both? A short guide to making the right call before you spend a single dinar.
 date: 2026-10-06
 tags: web design, mobile apps, Jordan
+cover: devices
 colors: #00d4f5, #3f4cf5
 ---
 

@@ -2,6 +2,7 @@ import { readdirSync, readFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { marked } from "marked";
 import type { Locale } from "@/i18n/config";
+import type { CoverVariant } from "@/components/ui/BlogCover";
 
 /**
  * Blog posts live in src/content/blog/<slug>/<lang>.md with a small
@@ -13,6 +14,7 @@ import type { Locale } from "@/i18n/config";
  *   date: 2026-10-06
  *   tags: a, b
  *   colors: #00d4f5, #3f4cf5
+ *   cover: devices | chat | system
  *   ---
  */
 
@@ -26,6 +28,7 @@ export type PostMeta = {
   date: string;
   tags: string[];
   colors: [string, string];
+  cover: CoverVariant;
   readingMinutes: number;
 };
 
@@ -63,6 +66,7 @@ function loadRaw(slug: string, lang: Locale): { meta: PostMeta; body: string } |
     date: data.date ?? "",
     tags: list(data.tags),
     colors: [c1, c2],
+    cover: (["devices", "chat", "system"] as const).find((v) => v === data.cover) ?? "devices",
     readingMinutes: Math.max(1, Math.round(words / 200)),
   };
   return { meta, body };
@@ -88,6 +92,15 @@ export function getPost(lang: Locale, slug: string): Post | null {
   const raw = loadRaw(slug, lang);
   if (!raw) return null;
   return { ...raw.meta, html: marked.parse(raw.body, { async: false }) };
+}
+
+/** "1 دقيقة قراءة" / "3 دقائق قراءة" / "5 min read" — Arabic needs number agreement. */
+export function readingTime(minutes: number, lang: Locale) {
+  if (lang === "en") return `${minutes} min read`;
+  if (minutes === 1) return "دقيقة قراءة";
+  if (minutes === 2) return "دقيقتا قراءة";
+  if (minutes <= 10) return `${minutes} دقائق قراءة`;
+  return `${minutes} دقيقة قراءة`;
 }
 
 export const formatDate = (date: string, lang: Locale) =>

@@ -124,11 +124,11 @@ export const en: Dictionary = {
     latest: "From the blog",
     all: "All articles",
     read: "Read article",
-    minutes: "min read",
     back: "All articles",
     ctaTitle: "Have a project idea?",
     ctaButton: "Let's talk",
     more: "More articles",
+    abuAlt: "Abu Omar waving",
   },
   chat: {
     title: "Abu Omar",

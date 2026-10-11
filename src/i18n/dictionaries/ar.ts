@@ -123,11 +123,11 @@ export const ar = {
     latest: "من المدونة",
     all: "كل المقالات",
     read: "اقرأ المقال",
-    minutes: "دقائق قراءة",
     back: "كل المقالات",
     ctaTitle: "عندك فكرة مشروع؟",
     ctaButton: "خلّينا نحكي",
     more: "مقالات أخرى",
+    abuAlt: "أبو عمر يلوّح",
   },
   chat: {
     title: "أبو عمر",

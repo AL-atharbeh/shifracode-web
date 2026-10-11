@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -37,24 +38,48 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/blog">) {
   };
 
   return (
-    <div data-abu="blog" className="bg-ink px-4 pb-28 pt-32 sm:px-6 sm:pt-40">
+    <div data-abu="blog" className="relative overflow-hidden bg-ink px-4 pb-28 pt-28 sm:px-6 sm:pt-32">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
-      <Reveal className="mx-auto max-w-[1024px]">
-        <header className="text-center">
-          <p data-reveal className="text-[17px] font-semibold text-muted sm:text-[21px]">
-            {dict.eyebrow}
-          </p>
-          <h1 data-reveal className="tracking-display text-titanium mx-auto mt-2 max-w-[820px] text-[44px] font-semibold leading-[1.08] sm:text-[72px]">
-            {dict.title}
-          </h1>
-          <p data-reveal className="mx-auto mt-4 max-w-[620px] text-[17px] text-muted sm:text-[19px]">
-            {dict.description}
-          </p>
+
+      {/* Drifting brand glows behind the header */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[720px]">
+        <span className="animate-orb absolute start-[8%] top-[6%] h-[420px] w-[420px] rounded-full bg-[#00d4f5]/20 blur-[110px]" />
+        <span
+          className="animate-orb absolute end-[6%] top-[22%] h-[460px] w-[460px] rounded-full bg-[#3f4cf5]/25 blur-[120px]"
+          style={{ animationDelay: "-6s" }}
+        />
+        <span className="animate-grid absolute inset-0 bg-[linear-gradient(transparent_96%,rgba(255,255,255,0.05)_96%),linear-gradient(90deg,transparent_96%,rgba(255,255,255,0.05)_96%)] bg-[length:40px_40px] [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]" />
+      </div>
+
+      <Reveal className="relative mx-auto max-w-[1024px]">
+        <header className="grid items-end gap-6 text-center md:grid-cols-[1fr_auto] md:text-start">
+          <div className="md:pb-10">
+            <p data-reveal className="text-[17px] font-semibold text-muted sm:text-[21px]">
+              {dict.eyebrow}
+            </p>
+            <h1 data-reveal className="tracking-display text-titanium mt-2 max-w-[640px] text-[44px] font-semibold leading-[1.08] max-md:mx-auto sm:text-[64px]">
+              {dict.title}
+            </h1>
+            <p data-reveal className="mt-4 max-w-[560px] text-[17px] text-muted max-md:mx-auto sm:text-[19px]">
+              {dict.description}
+            </p>
+          </div>
+          <div data-reveal className="relative mx-auto h-[260px] w-[200px] sm:h-[340px] sm:w-[260px]">
+            <span aria-hidden className="absolute inset-x-4 bottom-2 h-10 rounded-[50%] bg-[#1fa0f5]/40 blur-2xl" />
+            <Image
+              src="/blog/abu-wave.webp"
+              alt={dict.abuAlt}
+              width={314}
+              height={900}
+              priority
+              className="animate-float relative mx-auto h-full w-auto drop-shadow-[0_24px_40px_rgba(0,0,0,0.6)]"
+            />
+          </div>
         </header>
 
         {featured && (
           <div data-reveal className="mt-16">
-            <PostCard post={featured} lang={lang} dict={dict} large />
+            <PostCard post={featured} lang={lang} dict={dict} large priority />
           </div>
         )}
         <ul className="mt-4 grid gap-4 md:grid-cols-2">

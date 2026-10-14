@@ -3,16 +3,30 @@ import { tr, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { site, whatsappLink } from "@/content/site";
 import { projects } from "@/content/projects";
+import { services } from "@/content/services";
 import Logo from "@/components/ui/Logo";
 
 export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary }) {
   return (
     <footer className="border-t border-line bg-ink-soft text-[13px] text-muted">
-      <div className="mx-auto grid max-w-[1024px] gap-10 px-6 py-14 sm:grid-cols-3">
+      <div className="mx-auto grid max-w-[1024px] gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-3">
           <Logo variant="full" />
           <p>{dict.footer.tagline}</p>
           <p>{tr(site.city, lang)}</p>
+        </div>
+
+        <div className="space-y-3">
+          <h2 className="font-semibold text-fg">{dict.nav.services}</h2>
+          <ul className="space-y-2">
+            {services.map((s) => (
+              <li key={s.slug}>
+                <Link href={`/${lang}/services/${s.slug}`} className="transition hover:text-fg">
+                  {tr(s.name, lang)}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="space-y-3">

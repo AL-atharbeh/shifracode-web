@@ -153,6 +153,18 @@ export const ar = {
     tagline: "نحوّل فكرتك إلى كود.",
     rights: "جميع الحقوق محفوظة.",
   },
+  servicePage: {
+    back: "كل الخدمات",
+    includes: "ماذا تحصل؟",
+    audience: "لمن هذه الخدمة؟",
+    work: "من أعمالنا",
+    readMore: "اقرأ المزيد في المدونة",
+    faq: "أسئلة شائعة",
+    ctaTitle: "خلّينا نبدأ مشروعك.",
+    ctaButton: "راسلنا على واتساب",
+    more: "خدمات أخرى",
+    details: "التفاصيل",
+  },
   projectPage: {
     back: "كل المشاريع",
     visit: "زيارة الموقع",

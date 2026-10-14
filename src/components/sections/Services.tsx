@@ -1,4 +1,7 @@
+import Link from "next/link";
+import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { services } from "@/content/services";
 import Reveal from "@/components/ui/Reveal";
 
 const icons = [
@@ -18,7 +21,7 @@ const icons = [
 
 const glows = ["#2997ff", "#a259ff", "#5e5ce6", "#30d158", "#ff9f0a", "#ff375f"];
 
-export default function Services({ dict }: { dict: Dictionary["services"] }) {
+export default function Services({ lang, dict }: { lang: Locale; dict: Dictionary["services"] }) {
   return (
     <section id="services" data-abu="services" className="scroll-mt-12 bg-ink px-4 py-28 sm:px-6 sm:py-40">
       <Reveal className="mx-auto max-w-[1024px]">
@@ -34,10 +37,11 @@ export default function Services({ dict }: { dict: Dictionary["services"] }) {
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {dict.items.map((item, i) => (
-            <article
+            <Link
               key={item.title}
+              href={`/${lang}/services/${services[i]?.slug ?? ""}`}
               data-reveal
-              className="group relative overflow-hidden rounded-[28px] bg-panel p-8 transition duration-500 hover:-translate-y-1"
+              className="group relative block overflow-hidden rounded-[28px] bg-panel p-8 transition duration-500 hover:-translate-y-1"
             >
               <div
                 aria-hidden
@@ -58,7 +62,7 @@ export default function Services({ dict }: { dict: Dictionary["services"] }) {
               </svg>
               <h3 className="tracking-title relative mt-10 text-[24px] font-semibold">{item.title}</h3>
               <p className="relative mt-2 text-[17px] leading-relaxed text-muted">{item.desc}</p>
-            </article>
+            </Link>
           ))}
         </div>
       </Reveal>

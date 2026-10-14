@@ -4,7 +4,7 @@ import { Inter, Readex_Pro } from "next/font/google";
 import { dirOf, hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { site } from "@/content/site";
-import { alternatesFor, jsonLdString, organizationJsonLd } from "@/lib/seo";
+import { alternatesFor, jsonLdString, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AbuGuide from "@/components/abu-omar/AbuGuide";
@@ -59,7 +59,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
       <body className="min-h-dvh bg-ink text-fg">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: jsonLdString(organizationJsonLd(lang)) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdString([organizationJsonLd(lang), websiteJsonLd(lang)]) }}
         />
         <Header lang={lang} dict={dict} />
         <main>{children}</main>

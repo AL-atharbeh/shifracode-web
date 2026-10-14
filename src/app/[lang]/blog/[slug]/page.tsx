@@ -5,7 +5,7 @@ import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { formatDate, getPost, getPosts, getPostSlugs, readingTime } from "@/lib/blog";
 import { site, whatsappLink } from "@/content/site";
-import { alternatesFor, jsonLdString } from "@/lib/seo";
+import { alternatesFor, breadcrumbJsonLd, jsonLdString } from "@/lib/seo";
 import PostCard from "@/components/ui/PostCard";
 import BlogCover from "@/components/ui/BlogCover";
 import ReadingProgress from "@/components/ui/ReadingProgress";
@@ -60,13 +60,18 @@ export default async function BlogPost({ params }: PageProps<"/[lang]/blog/[slug
     keywords: post.tags.join(", "),
     url: `${site.url}/${lang}/blog/${slug}`,
     mainEntityOfPage: `${site.url}/${lang}/blog/${slug}`,
+    image: `${site.url}/${lang}/opengraph-image`,
     author: { "@id": `${site.url}/#organization` },
     publisher: { "@id": `${site.url}/#organization` },
   };
+  const breadcrumbs = breadcrumbJsonLd(lang, [
+    { name: t.eyebrow, path: "/blog" },
+    { name: post.title, path: `/blog/${slug}` },
+  ]);
 
   return (
     <article className="bg-ink">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString([jsonLd, breadcrumbs]) }} />
 
       <header className="relative overflow-hidden px-6 pb-12 pt-32 text-center sm:pt-40">
         <div

@@ -20,6 +20,7 @@ export function organizationJsonLd(lang: Locale) {
     alternateName: site.nameAr,
     url: `${site.url}/${lang}`,
     logo: `${site.url}/brand/logo.png`,
+    image: `${site.url}/${lang}/opengraph-image`,
     email: site.email,
     telephone: site.phones[0],
     priceRange: "$$",
@@ -50,6 +51,34 @@ export function organizationJsonLd(lang: Locale) {
       "WhatsApp automation",
       "UI/UX design",
     ],
+  };
+}
+
+export function websiteJsonLd(lang: Locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site.url}/#website`,
+    name: site.name,
+    alternateName: site.nameAr,
+    url: `${site.url}/${lang}`,
+    inLanguage: lang,
+    publisher: { "@id": `${site.url}/#organization` },
+  };
+}
+
+/** Breadcrumb trail; the home crumb is added automatically. */
+export function breadcrumbJsonLd(lang: Locale, crumbs: { name: string; path: string }[]) {
+  const home = { name: lang === "ar" ? site.nameAr : site.name, path: "" };
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [home, ...crumbs].map((c, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: c.name,
+      item: `${site.url}/${lang}${c.path}`,
+    })),
   };
 }
 

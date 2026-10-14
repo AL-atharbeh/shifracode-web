@@ -6,7 +6,7 @@ import { hasLocale, locales, tr } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getProject, projects } from "@/content/projects";
 import { site, whatsappLink } from "@/content/site";
-import { alternatesFor, jsonLdString } from "@/lib/seo";
+import { alternatesFor, breadcrumbJsonLd, jsonLdString } from "@/lib/seo";
 import ProjectMockup from "@/components/ui/ProjectMockup";
 import Reveal from "@/components/ui/Reveal";
 
@@ -47,10 +47,14 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
     keywords: project.stack.flatMap((g) => g.items).join(", "),
     inLanguage: lang,
   };
+  const breadcrumbs = breadcrumbJsonLd(lang, [
+    { name: dict.nav.projects, path: "#projects" },
+    { name: tr(project.name, lang), path: `/projects/${slug}` },
+  ]);
 
   return (
     <article className="bg-ink">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString([jsonLd, breadcrumbs]) }} />
 
       <header className="px-6 pb-16 pt-32 text-center sm:pt-40">
         <Link href={`/${lang}#projects`} className="text-[15px] text-accent hover:underline">

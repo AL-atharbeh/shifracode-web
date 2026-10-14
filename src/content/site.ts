@@ -1,7 +1,9 @@
 export const site = {
   name: "Shifra Code",
   nameAr: "شيفرا كود",
-  url: "https://shifracode.com",
+  // Must match the host Vercel serves (apex redirects to www), or Google sees
+  // every canonical pointing at a redirect.
+  url: "https://www.shifracode.com",
   email: "info@shifracode.com",
   phones: ["+962770466649", "+962770466648"],
   whatsapp: "962770466648",

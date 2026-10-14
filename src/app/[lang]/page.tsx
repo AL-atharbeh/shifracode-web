@@ -23,7 +23,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Hero dict={dict.hero} />
       <Statement text={dict.statement} />
       {abuOmarVideoUrl && <AbuVideo src={abuOmarVideoUrl} dict={dict.abuVideo} />}
-      <Services dict={dict.services} />
+      <Services lang={lang} dict={dict.services} />
       <Industries dict={dict.industries} />
       <Projects lang={lang} dict={dict.projects} />
       <Process dict={dict.process} />

@@ -154,6 +154,18 @@ export const en: Dictionary = {
     tagline: "We turn your idea into code.",
     rights: "All rights reserved.",
   },
+  servicePage: {
+    back: "All services",
+    includes: "What you get",
+    audience: "Who it's for",
+    work: "Our work",
+    readMore: "Read more on the blog",
+    faq: "Frequently asked questions",
+    ctaTitle: "Let's start your project.",
+    ctaButton: "Message us on WhatsApp",
+    more: "Other services",
+    details: "Details",
+  },
   projectPage: {
     back: "All projects",
     visit: "Visit site",

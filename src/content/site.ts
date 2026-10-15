@@ -6,7 +6,7 @@ export const site = {
   url: "https://www.shifracode.com",
   email: "info@shifracode.com",
   phones: ["+962770466649", "+962770466648"],
-  whatsapp: "962770466648",
+  whatsapp: "962770466649",
   instagram: "https://www.instagram.com/shfcod",
   instagramHandle: "@shfcod",
   linkedin: "https://www.linkedin.com/company/shifra-code",

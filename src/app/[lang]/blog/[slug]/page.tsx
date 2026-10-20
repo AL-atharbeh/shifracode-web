@@ -9,6 +9,7 @@ import { alternatesFor, breadcrumbJsonLd, jsonLdString } from "@/lib/seo";
 import PostCard from "@/components/ui/PostCard";
 import BlogCover from "@/components/ui/BlogCover";
 import ReadingProgress from "@/components/ui/ReadingProgress";
+import SplitWords from "@/components/motion/SplitWords";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) =>
@@ -86,9 +87,12 @@ export default async function BlogPost({ params }: PageProps<"/[lang]/blog/[slug
           <p className="mt-8 text-[15px] text-muted">
             {formatDate(post.date, lang)} · {readingTime(post.readingMinutes, lang)}
           </p>
-          <h1 className="tracking-display mx-auto mt-3 max-w-[860px] text-[36px] font-semibold leading-[1.15] sm:text-[56px]">
-            {post.title}
-          </h1>
+          <SplitWords
+            as="h1"
+            mode="load"
+            text={post.title}
+            className="tracking-display mx-auto mt-3 max-w-[860px] text-[36px] font-semibold leading-[1.18] sm:text-[56px]"
+          />
           <p className="mx-auto mt-5 max-w-[640px] text-[19px] text-muted sm:text-[21px]">{post.description}</p>
           <ul className="mt-6 flex flex-wrap justify-center gap-2">
             {post.tags.map((tag) => (

@@ -47,7 +47,7 @@ export default function AbuVideo({ src, dict }: { src: string; dict: Dictionary[
   );
 
   return (
-    <section ref={section} className="relative h-dvh overflow-hidden bg-ink">
+    <section ref={section} className="relative h-dvh overflow-hidden">
       <div data-video-frame className="absolute inset-0 overflow-hidden will-change-transform">
         <video
           ref={video}

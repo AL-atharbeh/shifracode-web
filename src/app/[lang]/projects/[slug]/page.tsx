@@ -9,6 +9,7 @@ import { site, whatsappLink } from "@/content/site";
 import { alternatesFor, breadcrumbJsonLd, jsonLdString } from "@/lib/seo";
 import ProjectMockup from "@/components/ui/ProjectMockup";
 import Reveal from "@/components/ui/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => projects.map((p) => ({ lang, slug: p.slug })));
@@ -53,7 +54,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
   ]);
 
   return (
-    <article className="bg-ink">
+    <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString([jsonLd, breadcrumbs]) }} />
 
       <header className="px-6 pb-16 pt-32 text-center sm:pt-40">
@@ -66,9 +67,13 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
         <p className="mt-6 text-[17px] font-semibold" style={{ color: a }}>
           {tr(project.category, lang)}
         </p>
-        <h1 className="tracking-display text-titanium mt-2 text-[56px] font-semibold leading-[1.05] sm:text-[96px]">
-          {tr(project.name, lang)}
-        </h1>
+        <SplitWords
+          as="h1"
+          mode="load"
+          text={tr(project.name, lang)}
+          chars={lang === "en"}
+          className="split-titanium tracking-display mt-2 text-[56px] font-semibold leading-[1.1] sm:text-[110px]"
+        />
         <p className="tracking-title mx-auto mt-4 max-w-[720px] text-[21px] font-semibold sm:text-[28px]">
           {tr(project.tagline, lang)}
         </p>

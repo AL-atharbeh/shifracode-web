@@ -7,6 +7,7 @@ import { tr, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { projects } from "@/content/projects";
 import ProjectMockup from "@/components/ui/ProjectMockup";
+import SplitWords from "@/components/motion/SplitWords";
 
 /** Pinned section whose cards slide sideways as you scroll down (desktop). */
 export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionary["projects"] }) {
@@ -44,10 +45,10 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
   );
 
   return (
-    <section id="projects" data-abu="projects" ref={section} className="scroll-mt-12 overflow-hidden bg-ink py-24 md:flex md:h-dvh md:flex-col md:justify-center md:py-0">
+    <section id="projects" data-abu="projects" ref={section} className="scroll-mt-12 overflow-hidden py-24 md:flex md:h-dvh md:flex-col md:justify-center md:py-0">
       <div className="mx-auto w-full max-w-[1024px] px-6">
         <p className="text-[17px] font-semibold text-muted sm:text-[21px]">{dict.eyebrow}</p>
-        <h2 className="tracking-display mt-2 text-[40px] font-semibold leading-[1.08] sm:text-[64px]">{dict.title}</h2>
+        <SplitWords as="h2" text={dict.title} className="tracking-display mt-2 text-[40px] font-semibold leading-[1.1] sm:text-[72px]" />
       </div>
 
       <div
@@ -58,7 +59,10 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
           <Link
             key={p.slug}
             href={`/${lang}/projects/${p.slug}`}
-            className="group block w-full shrink-0 overflow-hidden rounded-[28px] bg-panel md:w-[min(56vw,680px)]"
+            data-cursor={dict.view}
+            data-transition={tr(p.name, lang)}
+            data-skew
+            className="glass group block w-full shrink-0 overflow-hidden rounded-[28px] md:w-[min(56vw,680px)]"
           >
             <div data-card-mock className="overflow-hidden">
               <ProjectMockup

@@ -12,15 +12,26 @@ import Process from "@/components/sections/Process";
 import Team from "@/components/sections/Team";
 import Contact from "@/components/sections/Contact";
 import LatestPosts from "@/components/sections/LatestPosts";
+import ChapterHud from "@/components/motion/ChapterHud";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const dict = getDictionary(lang);
 
+  const chapters = [
+    { id: "services", label: dict.nav.services },
+    { id: "projects", label: dict.nav.projects },
+    { id: "process", label: dict.nav.process },
+    { id: "team", label: dict.nav.team },
+    { id: "blog", label: dict.nav.blog },
+    { id: "contact", label: dict.nav.contact },
+  ];
+
   return (
     <>
-      <Hero dict={dict.hero} />
+      <ChapterHud chapters={chapters} />
+      <Hero lang={lang} dict={dict.hero} />
       <Statement text={dict.statement} />
       {abuOmarVideoUrl && <AbuVideo src={abuOmarVideoUrl} dict={dict.abuVideo} />}
       <Services lang={lang} dict={dict.services} />

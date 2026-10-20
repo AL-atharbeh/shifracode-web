@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { gsap, useGSAP } from "@/lib/gsap";
 import type { Dictionary } from "@/i18n/dictionaries";
+import SplitWords from "@/components/motion/SplitWords";
 
 /** Timeline whose line draws itself and lights each step as you scroll. */
 export default function Process({ dict }: { dict: Dictionary["process"] }) {
@@ -35,10 +36,10 @@ export default function Process({ dict }: { dict: Dictionary["process"] }) {
   );
 
   return (
-    <section id="process" data-abu="process" ref={section} className="scroll-mt-12 bg-ink px-6 py-28 sm:py-40">
+    <section id="process" data-abu="process" ref={section} className="scroll-mt-12 px-6 py-28 sm:py-40">
       <div className="mx-auto max-w-[1024px]">
         <p className="text-[17px] font-semibold text-muted sm:text-[21px]">{dict.eyebrow}</p>
-        <h2 className="tracking-display mt-2 text-[40px] font-semibold leading-[1.08] sm:text-[64px]">{dict.title}</h2>
+        <SplitWords as="h2" text={dict.title} className="tracking-display mt-2 text-[40px] font-semibold leading-[1.1] sm:text-[72px]" />
 
         <ol data-steps className="relative mt-16 space-y-16 ps-12 sm:ps-20">
           <span aria-hidden className="absolute bottom-2 start-[15px] top-2 w-px bg-line sm:start-[23px]" />
@@ -52,7 +53,14 @@ export default function Process({ dict }: { dict: Dictionary["process"] }) {
               <span className="absolute -start-12 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-panel-2 text-[13px] font-semibold ring-1 ring-white/15 sm:-start-20 sm:h-12 sm:w-12 sm:text-[17px]">
                 {i + 1}
               </span>
-              <h3 className="tracking-title text-[28px] font-semibold sm:text-[40px]">{step.title}</h3>
+              <span
+                aria-hidden
+                data-parallax="0.25"
+                className="text-outline pointer-events-none absolute -top-6 end-0 select-none font-mono text-[90px] font-bold leading-none sm:text-[150px]"
+              >
+                0{i + 1}
+              </span>
+              <SplitWords as="h3" text={step.title} className="tracking-title text-[32px] font-semibold sm:text-[56px]" />
               <p className="mt-1 text-[17px] text-muted sm:text-[21px]">{step.desc}</p>
             </li>
           ))}

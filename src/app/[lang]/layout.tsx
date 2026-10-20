@@ -8,6 +8,11 @@ import { alternatesFor, jsonLdString, organizationJsonLd, websiteJsonLd } from "
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AbuGuide from "@/components/abu-omar/AbuGuide";
+import LiquidBackground from "@/components/motion/LiquidBackground";
+import SmoothScroll from "@/components/motion/SmoothScroll";
+import Cursor from "@/components/motion/Cursor";
+import MotionDirector from "@/components/motion/MotionDirector";
+import PageTransition from "@/components/motion/PageTransition";
 import "../globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"], display: "swap" });
@@ -56,15 +61,21 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
 
   return (
     <html lang={lang} dir={dirOf(lang)} className={`${inter.variable} ${readex.variable}`}>
-      <body className="min-h-dvh bg-ink text-fg">
+      <body className="min-h-dvh text-fg">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdString([organizationJsonLd(lang), websiteJsonLd(lang)]) }}
         />
+        <LiquidBackground />
+        <div aria-hidden className="film-grain" />
+        <SmoothScroll />
         <Header lang={lang} dict={dict} />
         <main>{children}</main>
         <Footer lang={lang} dict={dict} />
         <AbuGuide lang={lang} dict={dict.abu} chat={dict.chat} />
+        <MotionDirector />
+        <PageTransition brand={lang === "ar" ? site.nameAr : site.name} />
+        <Cursor />
       </body>
     </html>
   );

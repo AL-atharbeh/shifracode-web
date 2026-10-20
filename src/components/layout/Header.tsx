@@ -44,8 +44,13 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <Link href={l.href} className="text-fg/75 transition hover:text-fg">
-                {l.label}
+              <Link href={l.href} className="group relative block h-[1.4em] overflow-hidden text-fg/75 hover:text-fg">
+                <span className="block transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:-translate-y-full">
+                  {l.label}
+                </span>
+                <span aria-hidden className="absolute inset-x-0 top-full block text-fg transition-transform duration-500 ease-[cubic-bezier(.7,0,.2,1)] group-hover:-translate-y-full">
+                  {l.label}
+                </span>
               </Link>
             </li>
           ))}
@@ -66,7 +71,8 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
           </Link>
           <Link
             href={`/${lang}#contact`}
-            className="hidden rounded-full bg-accent-strong px-3.5 py-1 text-white transition hover:bg-accent sm:inline-block"
+            data-magnetic="0.5"
+            className="hidden rounded-full bg-accent-strong px-4 py-1.5 text-white transition-colors hover:bg-accent sm:inline-block"
           >
             {dict.nav.cta}
           </Link>
@@ -88,16 +94,22 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
       </nav>
 
       <div
-        className={`overflow-hidden transition-[max-height] duration-500 md:hidden ${open ? "max-h-[80dvh]" : "max-h-0"}`}
+        className={`fixed inset-x-0 top-12 h-[calc(100dvh-3rem)] bg-black/90 backdrop-blur-2xl transition-[clip-path] duration-700 ease-[cubic-bezier(.7,0,.2,1)] md:hidden ${
+          open ? "[clip-path:inset(0_0_0_0)]" : "pointer-events-none [clip-path:inset(0_0_100%_0)]"
+        }`}
       >
-        <ul className="flex flex-col gap-1 px-6 pb-8 pt-2">
-          {links.map((l) => (
-            <li key={l.href}>
+        <ul className="flex flex-col gap-2 px-6 pt-8">
+          {links.map((l, i) => (
+            <li key={l.href} className="overflow-hidden">
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-2xl font-semibold text-fg/90"
+                style={{ transitionDelay: open ? `${150 + i * 60}ms` : "0ms" }}
+                className={`flex items-baseline gap-4 py-2 text-[40px] font-semibold text-fg/90 transition-transform duration-700 ease-[cubic-bezier(.2,.8,.2,1)] ${
+                  open ? "translate-y-0" : "translate-y-full"
+                }`}
               >
+                <span className="font-mono text-[13px] text-accent">0{i + 1}</span>
                 {l.label}
               </Link>
             </li>

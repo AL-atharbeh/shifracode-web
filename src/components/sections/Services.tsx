@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { services } from "@/content/services";
 import Reveal from "@/components/ui/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 const icons = [
   // Website
@@ -23,17 +24,16 @@ const glows = ["#2997ff", "#a259ff", "#5e5ce6", "#30d158", "#ff9f0a", "#ff375f"]
 
 export default function Services({ lang, dict }: { lang: Locale; dict: Dictionary["services"] }) {
   return (
-    <section id="services" data-abu="services" className="scroll-mt-12 bg-ink px-4 py-28 sm:px-6 sm:py-40">
+    <section id="services" data-abu="services" className="scroll-mt-12 px-4 py-28 sm:px-6 sm:py-40">
       <Reveal className="mx-auto max-w-[1024px]">
         <p data-reveal className="text-[17px] font-semibold text-muted sm:text-[21px]">
           {dict.eyebrow}
         </p>
-        <h2
-          data-reveal
-          className="tracking-display mt-2 whitespace-pre-line text-[40px] font-semibold leading-[1.08] sm:text-[64px]"
-        >
-          {dict.title}
-        </h2>
+        <SplitWords
+          as="h2"
+          text={dict.title}
+          className="tracking-display mt-2 text-[40px] font-semibold leading-[1.1] sm:text-[72px]"
+        />
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {dict.items.map((item, i) => (
@@ -41,8 +41,17 @@ export default function Services({ lang, dict }: { lang: Locale; dict: Dictionar
               key={item.title}
               href={`/${lang}/services/${services[i]?.slug ?? ""}`}
               data-reveal
-              className="group relative block overflow-hidden rounded-[28px] bg-panel p-8 transition duration-500 hover:-translate-y-1"
+              data-tilt="6"
+              data-transition={item.title}
+              data-cursor={lang === "ar" ? "اكتشف" : "Explore"}
+              className="glass spotlight group relative block overflow-hidden rounded-[28px] p-8 transition-[border-color] duration-500 hover:border-white/20"
             >
+              <span
+                aria-hidden
+                className="absolute end-7 top-7 font-mono text-[13px] text-fg/30 transition-colors duration-500 group-hover:text-fg/70"
+              >
+                0{i + 1}
+              </span>
               <div
                 aria-hidden
                 className="absolute -end-16 -top-16 h-48 w-48 rounded-full opacity-25 blur-3xl transition-opacity duration-500 group-hover:opacity-60"
@@ -60,7 +69,9 @@ export default function Services({ lang, dict }: { lang: Locale; dict: Dictionar
               >
                 {icons[i]}
               </svg>
-              <h3 className="tracking-title relative mt-10 text-[24px] font-semibold">{item.title}</h3>
+              <h3 className="tracking-title relative mt-10 text-[24px] font-semibold transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1">
+                {item.title}
+              </h3>
               <p className="relative mt-2 text-[17px] leading-relaxed text-muted">{item.desc}</p>
             </Link>
           ))}

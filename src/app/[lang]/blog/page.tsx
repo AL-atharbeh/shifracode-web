@@ -8,6 +8,7 @@ import { site } from "@/content/site";
 import { alternatesFor, jsonLdString } from "@/lib/seo";
 import PostCard from "@/components/ui/PostCard";
 import Reveal from "@/components/ui/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 export async function generateMetadata({ params }: PageProps<"/[lang]/blog">): Promise<Metadata> {
   const { lang } = await params;
@@ -38,7 +39,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/blog">) {
   };
 
   return (
-    <div data-abu="blog" className="relative overflow-hidden bg-ink px-4 pb-28 pt-28 sm:px-6 sm:pt-32">
+    <div data-abu="blog" className="relative overflow-hidden px-4 pb-28 pt-28 sm:px-6 sm:pt-32">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
 
       {/* Drifting brand glows behind the header */}
@@ -57,9 +58,12 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/blog">) {
             <p data-reveal className="text-[17px] font-semibold text-muted sm:text-[21px]">
               {dict.eyebrow}
             </p>
-            <h1 data-reveal className="tracking-display text-titanium mt-2 max-w-[640px] text-[44px] font-semibold leading-[1.08] max-md:mx-auto sm:text-[64px]">
-              {dict.title}
-            </h1>
+            <SplitWords
+              as="h1"
+              mode="load"
+              text={dict.title}
+              className="split-titanium tracking-display mt-2 max-w-[640px] text-[44px] font-semibold leading-[1.12] max-md:mx-auto sm:text-[64px]"
+            />
             <p data-reveal className="mt-4 max-w-[560px] text-[17px] text-muted max-md:mx-auto sm:text-[19px]">
               {dict.description}
             </p>

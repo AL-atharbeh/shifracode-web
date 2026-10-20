@@ -10,6 +10,7 @@ import { site, whatsappLink } from "@/content/site";
 import { alternatesFor, breadcrumbJsonLd, jsonLdString } from "@/lib/seo";
 import ProjectMockup from "@/components/ui/ProjectMockup";
 import Reveal from "@/components/ui/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => services.map((s) => ({ lang, slug: s.slug })));
@@ -72,7 +73,7 @@ export default async function ServicePage({ params }: PageProps<"/[lang]/service
   ];
 
   return (
-    <article className="bg-ink">
+    <article>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }} />
 
       <header className="relative overflow-hidden px-6 pb-16 pt-32 text-center sm:pt-40">
@@ -88,9 +89,12 @@ export default async function ServicePage({ params }: PageProps<"/[lang]/service
           <p className="mt-8 text-[17px] font-semibold" style={{ color: a }}>
             {tr(service.name, lang)}
           </p>
-          <h1 className="tracking-display mx-auto mt-3 max-w-[900px] text-[36px] font-semibold leading-[1.12] sm:text-[60px]">
-            {tr(service.headline, lang)}
-          </h1>
+          <SplitWords
+            as="h1"
+            mode="load"
+            text={tr(service.headline, lang)}
+            className="tracking-display mx-auto mt-3 max-w-[900px] text-[36px] font-semibold leading-[1.15] sm:text-[60px]"
+          />
           <p className="mx-auto mt-6 max-w-[720px] text-[17px] leading-relaxed text-muted sm:text-[19px]">
             {tr(service.intro, lang)}
           </p>

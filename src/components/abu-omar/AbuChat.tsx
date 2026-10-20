@@ -147,7 +147,7 @@ export default function AbuChat({
         </button>
       </header>
 
-      <div ref={scroller} className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
+      <div ref={scroller} data-lenis-prevent className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
         <Bubble role="assistant">{dict.greeting}</Bubble>
         {messages.map((m, i) => {
           const last = i === messages.length - 1;

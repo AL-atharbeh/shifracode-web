@@ -2,6 +2,7 @@ import { tr, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { site, whatsappLink } from "@/content/site";
 import Reveal from "@/components/ui/Reveal";
+import SplitWords from "@/components/motion/SplitWords";
 
 export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary["contact"] }) {
   const cards = [
@@ -24,17 +25,16 @@ export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary
   ];
 
   return (
-    <section id="contact" data-abu="contact" className="scroll-mt-12 bg-ink px-6 py-28 sm:py-40">
+    <section id="contact" data-abu="contact" className="scroll-mt-12 px-6 py-28 sm:py-40">
       <Reveal className="mx-auto max-w-[1024px] text-center">
         <p data-reveal className="text-[17px] font-semibold text-muted sm:text-[21px]">
           {dict.eyebrow}
         </p>
-        <h2
-          data-reveal
-          className="tracking-display text-gradient-brand mx-auto mt-2 max-w-[820px] pb-2 text-[48px] font-semibold leading-[1.08] sm:text-[80px]"
-        >
-          {dict.title}
-        </h2>
+        <SplitWords
+          as="h2"
+          text={dict.title}
+          className="split-brand tracking-display mx-auto mt-2 max-w-[900px] pb-2 text-[52px] font-bold leading-[1.1] sm:text-[104px]"
+        />
         <p data-reveal className="mx-auto mt-4 max-w-[560px] text-[19px] text-muted sm:text-[21px]">
           {dict.subtitle}
         </p>
@@ -44,13 +44,15 @@ export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary
             href={whatsappLink(dict.whatsappMessage)}
             target="_blank"
             rel="noopener"
-            className="rounded-full bg-[#25d366] px-7 py-3.5 text-[17px] font-medium text-black transition hover:brightness-110"
+            data-magnetic="0.45"
+            className="rounded-full bg-[#25d366] px-8 py-4 text-[17px] font-semibold text-black shadow-[0_0_60px_rgba(37,211,102,0.35)] transition hover:brightness-110"
           >
             {dict.whatsapp}
           </a>
           <a
             href={`tel:${site.phones[0]}`}
-            className="rounded-full border border-fg/25 px-7 py-3.5 text-[17px] font-medium transition hover:bg-fg/10"
+            data-magnetic="0.45"
+            className="rounded-full border border-fg/25 bg-white/[0.04] px-8 py-4 text-[17px] font-semibold backdrop-blur-md transition hover:bg-fg/10"
           >
             {dict.call}
           </a>
@@ -58,7 +60,7 @@ export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary
 
         <div className="mt-16 grid gap-4 text-start sm:grid-cols-2 lg:grid-cols-4">
           {cards.map((card) => (
-            <div key={card.label} data-reveal className="rounded-[24px] bg-panel p-6">
+            <div key={card.label} data-reveal className="glass rounded-[24px] p-6">
               <p className="text-[14px] font-semibold text-muted">{card.label}</p>
               <ul className="mt-2 space-y-1">
                 {card.lines.map((line) => (

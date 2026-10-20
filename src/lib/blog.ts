@@ -35,7 +35,8 @@ export type PostMeta = {
 export type Post = PostMeta & { html: string };
 
 function parse(raw: string) {
-  const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
+  // Normalise CRLF (Windows checkouts) so the frontmatter pattern still matches.
+  const match = raw.replace(/\r\n/g, "\n").match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) throw new Error("Blog post is missing its frontmatter block");
   const data: Record<string, string> = {};
   for (const line of match[1].split("\n")) {

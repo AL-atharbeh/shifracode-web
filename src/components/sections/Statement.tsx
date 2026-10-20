@@ -24,7 +24,7 @@ export default function Statement({ text }: { text: string }) {
   );
 
   return (
-    <section ref={section} className="bg-ink px-6 py-32 sm:py-48">
+    <section ref={section} className="px-6 py-32 sm:py-48">
       <p
         data-statement
         className="tracking-title mx-auto max-w-[980px] text-[32px] font-semibold leading-[1.25] sm:text-[48px] lg:text-[56px]"

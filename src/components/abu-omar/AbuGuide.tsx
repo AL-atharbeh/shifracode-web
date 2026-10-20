@@ -71,7 +71,7 @@ export default function AbuGuide({
 
       <div className="fixed bottom-5 end-5 z-40 flex items-end gap-3">
         <div
-          className={`max-w-[240px] origin-bottom rounded-2xl rounded-ee-sm bg-panel-2/90 px-4 py-3 text-[14px] leading-snug text-fg shadow-2xl ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 ${
+          className={`max-w-[240px] origin-bottom max-sm:hidden rounded-2xl rounded-ee-sm bg-panel-2/90 px-4 py-3 text-[14px] leading-snug text-fg shadow-2xl ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 ${
             showBubble ? "scale-100 opacity-100" : "pointer-events-none scale-90 opacity-0"
           }`}
           role="status"

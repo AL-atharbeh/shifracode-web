@@ -70,10 +70,10 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
       // Where the portrait sits: centred while assembling, then it steps aside for the greeting.
       const box = (shift: number) => {
         const mobile = W < 768;
-        const h = mobile ? H * 0.56 : H * 0.84;
+        const h = mobile ? H * 0.48 : H * 0.84;
         const w = (h * abuOmarImage.width) / abuOmarImage.height;
         const side = mobile ? 0 : (rtl ? -1 : 1) * W * 0.2 * shift;
-        return { x: W / 2 - w / 2 + side, y: mobile ? H * 0.1 : H * 0.08, w, h };
+        return { x: W / 2 - w / 2 + side, y: mobile ? H * 0.11 : H * 0.08, w, h };
       };
 
       const build = (img: HTMLImageElement) => {
@@ -283,7 +283,7 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
     { scope: section, dependencies: [lang] },
   );
 
-  const textSide = "absolute inset-x-6 bottom-[8%] text-center md:inset-x-auto md:bottom-auto md:start-[7%] md:top-1/2 md:max-w-[560px] md:-translate-y-1/2 md:text-start";
+  const textSide = "absolute inset-x-6 bottom-[6%] text-center md:inset-x-auto md:bottom-auto md:start-[7%] md:top-1/2 md:max-w-[560px] md:-translate-y-1/2 md:text-start";
 
   return (
     <section
@@ -325,13 +325,13 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
           <p className="font-mono text-[13px] tracking-[0.3em] text-accent" dir="ltr">
             {c.n} — {c.name}
           </p>
-          <h2 className="tracking-display mt-3 text-[34px] font-bold leading-[1.15] sm:text-[56px]">{c.title}</h2>
-          <p className="mt-3 text-[16px] leading-relaxed text-fg/65 sm:text-[19px]">{c.body}</p>
+          <h2 className="tracking-display mt-2 text-[26px] font-bold leading-[1.2] sm:text-[56px]">{c.title}</h2>
+          <p className="mt-2 text-[15px] leading-relaxed text-fg/65 sm:mt-3 sm:text-[19px]">{c.body}</p>
         </div>
       ))}
 
       <div data-story="hello" className={`${textSide} opacity-0 motion-reduce:relative motion-reduce:mt-8 motion-reduce:opacity-100`}>
-        <h2 className="tracking-display text-gradient-brand pb-1 text-[40px] font-bold leading-[1.15] sm:text-[72px]">{dict.hello}</h2>
+        <h2 className="tracking-display text-gradient-brand pb-1 text-[32px] font-bold leading-[1.2] sm:text-[72px]">{dict.hello}</h2>
         <p className="mt-3 text-[16px] leading-relaxed text-fg/70 sm:text-[20px]">{dict.helloBody}</p>
         <button
           type="button"

@@ -33,7 +33,7 @@ export default function Contact({ lang, dict }: { lang: Locale; dict: Dictionary
         <SplitWords
           as="h2"
           text={dict.title}
-          className="split-brand tracking-display mx-auto mt-2 max-w-[900px] pb-2 text-[52px] font-bold leading-[1.1] sm:text-[104px]"
+          className="split-brand tracking-display mx-auto mt-2 max-w-[900px] pb-2 text-[40px] font-bold leading-[1.15] sm:text-[104px]"
         />
         <p data-reveal className="mx-auto mt-4 max-w-[560px] text-[19px] text-muted sm:text-[21px]">
           {dict.subtitle}

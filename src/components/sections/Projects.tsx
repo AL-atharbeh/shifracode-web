@@ -30,7 +30,8 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
     () => {
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const groups = gsap.utils.toArray<HTMLElement>("[data-work]");
-      const texts = gsap.utils.toArray<HTMLElement>("[data-work-text]");
+      // Each project has two copies of its text (desktop column, mobile footer); drive both.
+      const texts = projects.map((_, i) => gsap.utils.toArray<HTMLElement>(`[data-work-text="${i}"]`));
       const marks = gsap.utils.toArray<HTMLElement>("[data-work-index]");
 
       const activate = (i: number) =>
@@ -38,7 +39,7 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
 
       if (reduce) {
         gsap.set(groups.slice(1), { autoAlpha: 0 });
-        gsap.set(texts.slice(1), { autoAlpha: 0 });
+        gsap.set(texts.slice(1).flat(), { autoAlpha: 0 });
         activate(0);
         return;
       }
@@ -59,7 +60,7 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
       const home = { x: 0, y: 0, z: 0, rotation: 0, rotationX: 0, rotationY: 0, scale: 1, opacity: 1 };
 
       gsap.set(groups, { autoAlpha: 1 });
-      gsap.set(texts, { autoAlpha: 0 });
+      gsap.set(texts.flat(), { autoAlpha: 0 });
       groups.forEach((g, gi) => {
         g.querySelectorAll("[data-tile]").forEach((t, ti) => gsap.set(t, scatter(t, ti + gi * 97)));
         gsap.set(g.querySelector("[data-work-frame]"), { opacity: 0 });
@@ -127,7 +128,7 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
         <div className="md:row-span-2 md:flex md:flex-col md:justify-between">
           <div>
             <p className="text-[15px] font-semibold text-muted sm:text-[19px]">{dict.eyebrow}</p>
-            <SplitWords as="h2" text={dict.title} className="tracking-display mt-1 text-[32px] font-semibold leading-[1.1] sm:text-[52px]" />
+            <SplitWords as="h2" text={dict.title} className="tracking-display mt-1 text-[28px] font-semibold leading-[1.15] sm:text-[52px]" />
           </div>
 
           {/* Current project's copy; the timeline swaps them. */}
@@ -223,14 +224,14 @@ export default function Projects({ lang, dict }: { lang: Locale; dict: Dictionar
 
 function ProjectText({ p, i, lang, view }: { p: (typeof projects)[number]; i: number; lang: Locale; view: string }) {
   return (
-    <div data-work-text className="absolute inset-0 motion-reduce:[&:not(:first-child)]:hidden">
+    <div data-work-text={i} className="absolute inset-0 motion-reduce:[&:not(:first-child)]:hidden">
       <p className="font-mono text-[12px] tracking-[0.25em] text-fg/40" dir="ltr">
         {String(i + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
       </p>
       <p className="mt-3 text-[14px] font-semibold" style={{ color: p.colors[0] }}>
         {tr(p.category, lang)}
       </p>
-      <h3 className="tracking-display mt-1 text-[44px] font-bold leading-[1.05] sm:text-[72px]">{tr(p.name, lang)}</h3>
+      <h3 className="tracking-display mt-1 text-[34px] font-bold leading-[1.1] sm:text-[72px]">{tr(p.name, lang)}</h3>
       <p className="mt-2 max-w-[420px] text-[16px] leading-relaxed text-fg/60 sm:text-[18px]">{tr(p.tagline, lang)}</p>
       <Link
         href={`/${lang}/projects/${p.slug}`}

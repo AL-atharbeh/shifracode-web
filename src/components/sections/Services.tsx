@@ -32,7 +32,7 @@ export default function Services({ lang, dict }: { lang: Locale; dict: Dictionar
         <SplitWords
           as="h2"
           text={dict.title}
-          className="tracking-display mt-2 text-[40px] font-semibold leading-[1.1] sm:text-[72px]"
+          className="tracking-display mt-2 text-[32px] font-semibold leading-[1.15] sm:text-[72px]"
         />
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

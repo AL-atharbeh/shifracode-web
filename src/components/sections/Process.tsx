@@ -39,7 +39,7 @@ export default function Process({ dict }: { dict: Dictionary["process"] }) {
     <section id="process" data-abu="process" ref={section} className="scroll-mt-12 px-6 py-28 sm:py-40">
       <div className="mx-auto max-w-[1024px]">
         <p className="text-[17px] font-semibold text-muted sm:text-[21px]">{dict.eyebrow}</p>
-        <SplitWords as="h2" text={dict.title} className="tracking-display mt-2 text-[40px] font-semibold leading-[1.1] sm:text-[72px]" />
+        <SplitWords as="h2" text={dict.title} className="tracking-display mt-2 text-[32px] font-semibold leading-[1.15] sm:text-[72px]" />
 
         <ol data-steps className="relative mt-16 space-y-16 ps-12 sm:ps-20">
           <span aria-hidden className="absolute bottom-2 start-[15px] top-2 w-px bg-line sm:start-[23px]" />

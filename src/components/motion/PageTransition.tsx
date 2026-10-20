@@ -238,12 +238,12 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
             {/* The brand name sits behind Abu Omar like a poster. */}
             <p
               data-splash-name
-              className="text-outline absolute inset-x-0 top-[40%] -translate-y-1/2 select-none whitespace-nowrap text-center text-[17vw] font-bold leading-none [-webkit-text-stroke-color:rgb(245_245_247/0.14)] md:text-[15vw]"
+              className="text-outline absolute inset-x-0 top-[17%] -translate-y-1/2 select-none md:top-[40%] whitespace-nowrap text-center text-[17vw] font-bold leading-none [-webkit-text-stroke-color:rgb(245_245_247/0.14)] md:text-[15vw]"
             >
               {copy.brand}
             </p>
 
-            <div className="absolute bottom-[22%] left-1/2 h-[54vh] -translate-x-1/2" style={{ aspectRatio: `${abuOmarImage.width} / ${abuOmarImage.height}` }}>
+            <div className="absolute bottom-[21%] left-1/2 h-[46vh] -translate-x-1/2 md:h-[54vh]" style={{ aspectRatio: `${abuOmarImage.width} / ${abuOmarImage.height}` }}>
               <div data-splash-abu className="relative h-full w-full">
                 <Image src={abuOmarImage.src} alt="" fill priority sizes="300px" className="object-contain" />
               </div>

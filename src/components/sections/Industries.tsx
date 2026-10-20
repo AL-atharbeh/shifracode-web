@@ -11,7 +11,7 @@ export default function Industries({ dict }: { dict: Dictionary["industries"] })
       <SplitWords
         as="h2"
         text={dict.title}
-        className="tracking-display px-6 text-center text-[36px] font-semibold sm:text-[64px]"
+        className="tracking-display px-6 text-center text-[30px] font-semibold sm:text-[64px]"
       />
       <div data-skew className="mt-12 space-y-4 [mask-image:linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)]">
         {rows.map((row, r) => (

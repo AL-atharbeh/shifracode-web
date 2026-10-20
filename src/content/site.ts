@@ -1,6 +1,8 @@
 export const site = {
   name: "Shifra Code",
   nameAr: "شيفرا كود",
+  /** Registered company name (commercial register). */
+  legalName: "Hikmat Al-Bayanat for Software LLC",
   // Must match the host Vercel serves (apex redirects to www), or Google sees
   // every canonical pointing at a redirect.
   url: "https://www.shifracode.com",

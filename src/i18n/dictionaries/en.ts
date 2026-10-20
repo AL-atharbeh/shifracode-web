@@ -153,6 +153,7 @@ export const en: Dictionary = {
   footer: {
     tagline: "We turn your idea into code.",
     rights: "All rights reserved.",
+    legal: "Shifra Code is a brand of",
   },
   servicePage: {
     back: "All services",

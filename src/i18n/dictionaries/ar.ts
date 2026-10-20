@@ -152,6 +152,7 @@ export const ar = {
   footer: {
     tagline: "نحوّل فكرتك إلى كود.",
     rights: "جميع الحقوق محفوظة.",
+    legal: "شيفرا كود علامة تجارية تابعة لشركة",
   },
   servicePage: {
     back: "كل الخدمات",

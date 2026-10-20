@@ -85,8 +85,16 @@ export default function Footer({ lang, dict }: { lang: Locale; dict: Dictionary 
           </ul>
         </div>
       </div>
-      <div className="mx-auto max-w-[1024px] border-t border-line px-6 py-5">
-        © {new Date().getFullYear()} {lang === "ar" ? site.nameAr : site.name}. {dict.footer.rights}
+      <div className="mx-auto flex max-w-[1024px] flex-col gap-1 border-t border-line px-6 pb-24 pt-5 sm:flex-row sm:justify-between sm:pb-5 sm:pe-24">
+        <p>
+          © {new Date().getFullYear()} {lang === "ar" ? site.nameAr : site.name}. {dict.footer.rights}
+        </p>
+        <p>
+          {dict.footer.legal}{" "}
+          <span dir="ltr" className="text-fg/80">
+            {site.legalName}
+          </span>
+        </p>
       </div>
     </footer>
   );

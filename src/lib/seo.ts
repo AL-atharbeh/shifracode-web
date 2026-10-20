@@ -18,6 +18,7 @@ export function organizationJsonLd(lang: Locale) {
     "@id": `${site.url}/#organization`,
     name: site.name,
     alternateName: site.nameAr,
+    legalName: site.legalName,
     url: `${site.url}/${lang}`,
     logo: `${site.url}/brand/logo.png`,
     image: `${site.url}/${lang}/opengraph-image`,

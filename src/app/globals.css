@@ -27,7 +27,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-/* Transparent so the fixed WebGL background (z-index -10) shows; html stays black. */
+/* Transparent so the fixed code-rain background (negative z-index) shows; html stays black. */
 body {
   font-family: var(--font-sans);
   background: transparent;

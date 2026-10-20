@@ -47,6 +47,10 @@ export const en: Dictionary = {
   },
   statement:
     "We don't just write code — we build products. It starts with a deep understanding of your business and your customers, then becomes a meticulously crafted experience on a solid technical foundation, ready to grow with you.",
+  splash: {
+    greeting: "Welcome, I'm Abu Omar.",
+    tagline: "One moment… preparing the Shifra Code experience.",
+  },
   abuStory: {
     label: "The story of Abu Omar",
     code: '"your idea"',

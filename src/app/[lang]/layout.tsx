@@ -8,7 +8,7 @@ import { alternatesFor, jsonLdString, organizationJsonLd, websiteJsonLd } from "
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AbuGuide from "@/components/abu-omar/AbuGuide";
-import LiquidBackground from "@/components/motion/LiquidBackground";
+import CodeRain from "@/components/motion/CodeRain";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import Cursor from "@/components/motion/Cursor";
 import MotionDirector from "@/components/motion/MotionDirector";
@@ -66,7 +66,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdString([organizationJsonLd(lang), websiteJsonLd(lang)]) }}
         />
-        <LiquidBackground />
+        <CodeRain />
         <div aria-hidden className="film-grain" />
         <SmoothScroll />
         <Header lang={lang} dict={dict} />
@@ -74,7 +74,14 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
         <Footer lang={lang} dict={dict} />
         <AbuGuide lang={lang} dict={dict.abu} chat={dict.chat} />
         <MotionDirector />
-        <PageTransition brand={lang === "ar" ? site.nameAr : site.name} />
+        <PageTransition
+          copy={{
+            brand: lang === "ar" ? site.nameAr : site.name,
+            greeting: dict.splash.greeting,
+            tagline: dict.splash.tagline,
+            city: site.city.en,
+          }}
+        />
         <Cursor />
       </body>
     </html>

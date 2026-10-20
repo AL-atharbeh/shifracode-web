@@ -30,7 +30,7 @@ function RotatingWord({ words }: { words: string[] }) {
   }, [words.length]);
 
   return (
-    <span className="relative inline-flex overflow-hidden px-1 pb-[0.15em] align-bottom">
+    <span className="relative -my-[0.25em] inline-flex overflow-hidden px-1 py-[0.25em] align-baseline">
       <span ref={box} className="text-gradient-brand inline-block">
         {words[i]}
       </span>

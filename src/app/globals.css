@@ -374,3 +374,9 @@ html.lenis body {
   -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - var(--scan, 0%)), transparent calc(100% - var(--scan, 0%) + 10%));
   mask-image: linear-gradient(180deg, #000 calc(100% - var(--scan, 0%)), transparent calc(100% - var(--scan, 0%) + 10%));
 }
+
+/* Our Work: the project index under the copy. */
+.work-index.is-active {
+  color: var(--color-fg);
+  border-color: var(--color-accent);
+}

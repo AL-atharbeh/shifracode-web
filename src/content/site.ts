@@ -19,17 +19,10 @@ export const site = {
 };
 
 /**
- * Path to Abu Omar's real 3D model (GLB) inside /public.
- * While null, the site renders the built-in placeholder character.
- * Example: "/models/abu-omar.glb"
+ * Abu Omar, the site's mascot: a transparent cut-out (WebP) inside /public.
+ * The scroll story assembles him out of code glyphs sampled from this image.
  */
-export const abuOmarModelUrl: string | null = "/models/abu-omar.glb";
-
-/**
- * Abu Omar's scroll-scrubbed video inside /public. The cinematic video
- * section only appears once this is set. Example: "/videos/abu-omar-v2.mp4"
- */
-export const abuOmarVideoUrl: string | null = "/videos/abu-omar-v2.mp4";
+export const abuOmarImage = { src: "/abu-omar/abu-omar.webp", width: 641, height: 1465 };
 
 export const whatsappLink = (text?: string) =>
   `https://wa.me/${site.whatsapp}${text ? `?text=${encodeURIComponent(text)}` : ""}`;

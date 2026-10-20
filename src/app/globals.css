@@ -368,3 +368,9 @@ html.lenis body {
   60% { transform: translate(-2%, -4%); }
   80% { transform: translate(4%, 2%); }
 }
+
+/* Abu Omar story: the crisp portrait resolves top-down like a scan. */
+.story-portrait {
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - var(--scan, 0%)), transparent calc(100% - var(--scan, 0%) + 10%));
+  mask-image: linear-gradient(180deg, #000 calc(100% - var(--scan, 0%)), transparent calc(100% - var(--scan, 0%) + 10%));
+}

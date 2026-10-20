@@ -47,10 +47,19 @@ export const en: Dictionary = {
   },
   statement:
     "We don't just write code — we build products. It starts with a deep understanding of your business and your customers, then becomes a meticulously crafted experience on a solid technical foundation, ready to grow with you.",
-  abuVideo: {
-    label: "Abu Omar video",
-    line1: "Meet Abu Omar.",
-    line2: "Your smart guide from idea to launch.",
+  abuStory: {
+    label: "The story of Abu Omar",
+    code: '"your idea"',
+    compiling: "Compiling",
+    chapters: [
+      { n: "01", name: "The line", title: "Everything starts with one line.", body: "A small idea, written as a single line of code." },
+      { n: "02", name: "The code", title: "Then the line multiplies.", body: "Thousands of glyphs in orbit, searching for their shape." },
+      { n: "03", name: "The form", title: "And the code takes shape.", body: "Every glyph knows exactly where it belongs. Nothing here is random." },
+      { n: "04", name: "The life", title: "Until it comes alive.", body: "That is how we build products: from a single line to something alive." },
+    ],
+    hello: "Hi, I'm Abu Omar.",
+    helloBody: "Shifra Code's smart advisor. Tell me about your project and I'll point you to the right solution.",
+    ask: "Ask Abu Omar",
   },
   services: {
     eyebrow: "Services",

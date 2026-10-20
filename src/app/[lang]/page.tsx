@@ -3,8 +3,7 @@ import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import Hero from "@/components/sections/Hero";
 import Statement from "@/components/sections/Statement";
-import AbuVideo from "@/components/sections/AbuVideo";
-import { abuOmarVideoUrl } from "@/content/site";
+import AbuStory from "@/components/sections/AbuStory";
 import Services from "@/components/sections/Services";
 import Industries from "@/components/sections/Industries";
 import Projects from "@/components/sections/Projects";
@@ -32,8 +31,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     <>
       <ChapterHud chapters={chapters} />
       <Hero lang={lang} dict={dict.hero} />
+      <AbuStory lang={lang} dict={dict.abuStory} />
       <Statement text={dict.statement} />
-      {abuOmarVideoUrl && <AbuVideo src={abuOmarVideoUrl} dict={dict.abuVideo} />}
       <Services lang={lang} dict={dict.services} />
       <Industries dict={dict.industries} />
       <Projects lang={lang} dict={dict.projects} />

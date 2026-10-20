@@ -14,7 +14,7 @@ type GuideKey = Exclude<keyof Dictionary["abu"], "name">;
 /**
  * Floating Abu Omar: comments on the section in view (sections opt in with
  * `data-abu="<key>"`) and opens the AI chat when tapped. The speech bubble is
- * hidden over the hero, where the full 3D Abu Omar is already on screen.
+ * hidden over the hero.
  */
 export default function AbuGuide({
   lang,
@@ -48,6 +48,13 @@ export default function AbuGuide({
     });
     return () => triggers.forEach((t) => t.kill());
   }, [pathname]);
+
+  // Other parts of the page (e.g. the Abu Omar story) can open the chat.
+  useEffect(() => {
+    const open = () => setChatOpen(true);
+    window.addEventListener("abu:open", open);
+    return () => window.removeEventListener("abu:open", open);
+  }, []);
 
   // Collapse the speech bubble a few seconds after each new line.
   useEffect(() => {

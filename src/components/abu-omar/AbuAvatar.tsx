@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-/** Abu Omar's portrait, rendered from the 3D model, on the brand gradient. */
+/** Abu Omar's portrait on the brand gradient. */
 export default function AbuAvatar({ className = "" }: { className?: string }) {
   return (
     <span

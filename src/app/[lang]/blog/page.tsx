@@ -44,9 +44,9 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/blog">) {
 
       {/* Drifting brand glows behind the header */}
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[720px]">
-        <span className="animate-orb absolute start-[8%] top-[6%] h-[420px] w-[420px] rounded-full bg-[#00d4f5]/20 blur-[110px]" />
+        <span className="animate-orb absolute start-[8%] top-[6%] h-[420px] w-[420px] rounded-full bg-[#2fb4e6]/20 blur-[110px]" />
         <span
-          className="animate-orb absolute end-[6%] top-[22%] h-[460px] w-[460px] rounded-full bg-[#3f4cf5]/25 blur-[120px]"
+          className="animate-orb absolute end-[6%] top-[22%] h-[460px] w-[460px] rounded-full bg-[#ff2d95]/25 blur-[120px]"
           style={{ animationDelay: "-6s" }}
         />
         <span className="animate-grid absolute inset-0 bg-[linear-gradient(transparent_96%,rgba(255,255,255,0.05)_96%),linear-gradient(90deg,transparent_96%,rgba(255,255,255,0.05)_96%)] bg-[length:40px_40px] [mask-image:radial-gradient(70%_60%_at_50%_30%,#000,transparent)]" />
@@ -69,7 +69,7 @@ export default async function BlogIndex({ params }: PageProps<"/[lang]/blog">) {
             </p>
           </div>
           <div data-reveal className="relative mx-auto h-[260px] w-[200px] sm:h-[340px] sm:w-[260px]">
-            <span aria-hidden className="absolute inset-x-4 bottom-2 h-10 rounded-[50%] bg-[#1fa0f5]/40 blur-2xl" />
+            <span aria-hidden className="absolute inset-x-4 bottom-2 h-10 rounded-[50%] bg-[#007ba7]/40 blur-2xl" />
             <Image
               src="/blog/abu-wave.webp"
               alt={dict.abuAlt}

@@ -72,7 +72,7 @@ export default function Header({ lang, dict }: { lang: Locale; dict: Dictionary 
           <Link
             href={`/${lang}#contact`}
             data-magnetic="0.5"
-            className="hidden rounded-full bg-accent-strong px-4 py-1.5 text-white transition-colors hover:bg-accent sm:inline-block"
+            className="hidden rounded-full bg-accent-strong px-4 py-1.5 font-semibold text-ink shadow-[0_0_28px_-6px_rgba(255,45,149,0.7)] transition hover:bg-[#ff5aab] hover:shadow-[0_0_36px_-4px_rgba(255,45,149,0.9)] sm:inline-block"
           >
             {dict.nav.cta}
           </Link>

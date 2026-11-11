@@ -97,7 +97,7 @@ export const services: Service[] = [
     ],
     related: ["shahed", "warshatak"],
     post: "website-or-app",
-    colors: ["#2997ff", "#00d4f5"],
+    colors: ["#2997ff", "#2fb4e6"],
   },
   {
     slug: "mobile-app-development",
@@ -297,7 +297,7 @@ export const services: Service[] = [
     ],
     related: ["hader"],
     post: "whatsapp-ai-agent",
-    colors: ["#30d158", "#00d4f5"],
+    colors: ["#30d158", "#2fb4e6"],
   },
   {
     slug: "ecommerce-development",

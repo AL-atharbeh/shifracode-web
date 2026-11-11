@@ -222,7 +222,7 @@ export default function AbuChat({
             type="submit"
             disabled={busy || !input.trim()}
             aria-label={dict.send}
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-strong text-white transition hover:bg-accent disabled:opacity-40"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent-strong font-semibold text-ink shadow-[0_0_28px_-6px_rgba(255,45,149,0.7)] transition hover:bg-[#ff5aab] hover:shadow-[0_0_36px_-4px_rgba(255,45,149,0.9)] disabled:opacity-40"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5 rtl:-scale-x-100" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M5 12h14M13 6l6 6-6 6" />
@@ -239,7 +239,7 @@ function Bubble({ role, children }: { role: "user" | "assistant"; children: Reac
   return (
     <div
       className={`w-fit max-w-[88%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-[15px] leading-relaxed ${
-        role === "user" ? "ms-auto rounded-ee-md bg-accent-strong text-white" : "rounded-es-md bg-white/[0.08]"
+        role === "user" ? "ms-auto rounded-ee-md bg-cerulean text-white" : "rounded-es-md bg-white/[0.08]"
       }`}
     >
       {children}

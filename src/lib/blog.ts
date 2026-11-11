@@ -13,7 +13,7 @@ import type { CoverVariant } from "@/components/ui/BlogCover";
  *   description: ...
  *   date: 2026-10-06
  *   tags: a, b
- *   colors: #00d4f5, #3f4cf5
+ *   colors: #2fb4e6, #ff2d95
  *   cover: devices | chat | system
  *   ---
  */
@@ -56,7 +56,7 @@ function loadRaw(slug: string, lang: Locale): { meta: PostMeta; body: string } |
   const file = path.join(BLOG_DIR, slug, `${lang}.md`);
   if (!existsSync(file)) return null;
   const { data, body } = parse(readFileSync(file, "utf8"));
-  const [c1 = "#00d4f5", c2 = "#3f4cf5"] = list(data.colors);
+  const [c1 = "#2fb4e6", c2 = "#ff2d95"] = list(data.colors);
   const words = body.split(/\s+/).filter(Boolean).length;
 
   const meta: PostMeta = {

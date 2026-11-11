@@ -100,7 +100,7 @@ export default function CodeRain() {
           const edge = dist < UMBRELLA + 30 && dy < 0;
           // The trail behind the head settles into brand blue.
           ctx.globalAlpha = 0.55 * level;
-          ctx.fillStyle = d.word ? "#22aaf5" : "#1b4fd6";
+          ctx.fillStyle = d.word ? "#2fb4e6" : "#1b4fd6";
           ctx.fillText(ch, d.x, py - size);
           // The head glows; words and drops splashing on the umbrella burn brighter.
           ctx.globalAlpha = (edge ? 1 : d.word ? 0.95 : 0.7) * level;
@@ -152,7 +152,7 @@ export default function CodeRain() {
         className="pointer-events-none fixed inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(60% 50% at 50% 0%, rgba(34,170,245,0.16), transparent 70%), radial-gradient(120% 90% at 50% 50%, transparent 40%, rgba(2,3,7,0.85) 100%)",
+            "radial-gradient(60% 50% at 50% 0%, rgba(47,180,230,0.16), transparent 70%), radial-gradient(120% 90% at 50% 50%, transparent 40%, rgba(2,3,7,0.85) 100%)",
         }}
       />
     </>

@@ -21,7 +21,7 @@ export default function Industries({ dict }: { dict: Dictionary["industries"] })
                 key={item}
                 className="glass me-4 flex items-center gap-3 whitespace-nowrap rounded-full px-7 py-4 text-[18px] text-fg/85 sm:text-[22px]"
               >
-                <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#00d4f5] to-[#3f4cf5]" />
+                <span className="h-2 w-2 rounded-full bg-gradient-to-r from-[#2fb4e6] to-[#ff2d95]" />
                 {item}
               </span>
             ))}

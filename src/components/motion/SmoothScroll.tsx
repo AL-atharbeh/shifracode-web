@@ -41,7 +41,7 @@ export default function SmoothScroll() {
     <div
       ref={bar}
       aria-hidden
-      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-[#00d4f5] via-[#1fa0f5] to-[#3f4cf5] rtl:origin-right"
+      className="pointer-events-none fixed inset-x-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-[#2fb4e6] via-[#007ba7] to-[#ff2d95] rtl:origin-right"
       style={{ transform: "scaleX(0)" }}
     />
   );

@@ -148,7 +148,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/project
           href={whatsappLink(dict.contact.whatsappMessage)}
           target="_blank"
           rel="noopener"
-          className="mt-8 inline-block rounded-full bg-accent-strong px-8 py-3.5 text-[17px] font-medium text-white transition hover:bg-accent"
+          className="mt-8 inline-block rounded-full bg-accent-strong px-8 py-3.5 text-[17px] font-semibold text-ink shadow-[0_0_28px_-6px_rgba(255,45,149,0.7)] transition hover:bg-[#ff5aab] hover:shadow-[0_0_36px_-4px_rgba(255,45,149,0.9)]"
         >
           {t.ctaButton}
         </a>

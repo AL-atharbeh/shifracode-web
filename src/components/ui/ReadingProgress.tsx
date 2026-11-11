@@ -40,7 +40,7 @@ export default function ReadingProgress({ target }: { target: string }) {
     <div
       ref={bar}
       aria-hidden
-      className="fixed inset-x-0 top-12 z-40 h-[3px] origin-[left] bg-gradient-to-r from-[#00d4f5] via-[#1fa0f5] to-[#3f4cf5] rtl:origin-[right] rtl:bg-gradient-to-l"
+      className="fixed inset-x-0 top-12 z-40 h-[3px] origin-[left] bg-gradient-to-r from-[#2fb4e6] via-[#007ba7] to-[#ff2d95] rtl:origin-[right] rtl:bg-gradient-to-l"
     />
   );
 }

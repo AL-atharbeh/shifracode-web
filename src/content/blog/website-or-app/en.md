@@ -4,7 +4,7 @@ description: Does your business need a website, a mobile app, or both? A short g
 date: 2026-10-06
 tags: web design, mobile apps, Jordan
 cover: devices
-colors: #00d4f5, #3f4cf5
+colors: #2fb4e6, #ff2d95
 ---
 
 The first question most business owners ask is: **do I need a website or an app?** The answer depends on one thing: what will your customer do, and how often?

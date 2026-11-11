@@ -83,7 +83,7 @@ export default function AbuGuide({
             <button
               type="button"
               onClick={() => setChatOpen(true)}
-              className="rounded-full bg-accent-strong px-3 py-1 text-[13px] font-medium text-white"
+              className="rounded-full bg-accent-strong px-3 py-1 text-[13px] font-semibold text-ink"
             >
               {chat.open}
             </button>

@@ -9,7 +9,7 @@ title: Post title
 description: One or two sentences — shown on cards and in Google results.
 date: 2026-10-06
 tags: first tag, second tag
-colors: #00d4f5, #3f4cf5
+colors: #2fb4e6, #ff2d95
 cover: devices   # devices | chat | system — the animated Abu Omar cover
 ---
 

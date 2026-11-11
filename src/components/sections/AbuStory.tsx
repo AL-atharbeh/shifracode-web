@@ -8,7 +8,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { abuOmarImage } from "@/content/site";
 
 const GLYPHS = "شيفراكودعمر{}<>/;=01()[]*+#$&ضصثقغهخحجطظزنتلبس".split("");
-const BRAND = ["#00d4f5", "#22aaf5", "#3f4cf5", "#7fe9ff"];
+const BRAND = ["#2fb4e6", "#2fb4e6", "#ff2d95", "#7fe9ff"];
 
 type Particle = {
   ch: string;
@@ -297,7 +297,7 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
       <div
         aria-hidden
         className="pointer-events-none absolute left-1/2 top-1/2 h-[90vmin] w-[90vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-[120px] motion-reduce:hidden"
-        style={{ background: "radial-gradient(circle, rgba(16,176,240,0.35), rgba(48,64,240,0.2) 50%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(47,180,230,0.35), rgba(255,45,149,0.2) 50%, transparent 70%)" }}
       />
 
       <canvas ref={canvas} aria-hidden className="absolute inset-0 h-full w-full motion-reduce:hidden" />
@@ -337,7 +337,7 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
           type="button"
           data-magnetic="0.4"
           onClick={() => window.dispatchEvent(new Event("abu:open"))}
-          className="mt-7 inline-flex items-center gap-3 rounded-full bg-fg px-7 py-3.5 text-[16px] font-semibold text-black transition hover:bg-accent hover:text-white"
+          className="mt-7 inline-flex items-center gap-3 rounded-full bg-fg px-7 py-3.5 text-[16px] font-semibold text-black transition hover:bg-accent-strong hover:shadow-[0_0_36px_-4px_rgba(255,45,149,0.9)]"
         >
           <span className="relative flex h-2 w-2">
             <span className="absolute inset-0 animate-ping rounded-full bg-[#30d158]" />
@@ -359,7 +359,7 @@ export default function AbuStory({ lang, dict }: { lang: Locale; dict: Dictionar
           {dict.compiling} abu-omar.ts
         </span>
         <span className="hidden h-px flex-1 overflow-hidden bg-white/10 sm:block">
-          <span data-story-meter className="block h-full origin-left bg-gradient-to-r from-[#00d4f5] to-[#3f4cf5]" />
+          <span data-story-meter className="block h-full origin-left bg-gradient-to-r from-[#2fb4e6] to-[#ff2d95]" />
         </span>
         <span className="flex items-center gap-4">
           <span className="relative block h-[1.4em] overflow-hidden">

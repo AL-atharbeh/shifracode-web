@@ -56,8 +56,8 @@ export default function Cursor() {
       setLabel(labelled?.dataset.cursor ?? "");
       gsap.to(disc.current, {
         scale: labelled ? 2.6 : link ? 1.7 : 1,
-        backgroundColor: labelled ? "rgba(34,170,245,1)" : link ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0)",
-        borderColor: labelled ? "rgba(34,170,245,0)" : "rgba(255,255,255,0.55)",
+        backgroundColor: labelled ? "rgba(47,180,230,1)" : link ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0)",
+        borderColor: labelled ? "rgba(47,180,230,0)" : "rgba(255,255,255,0.55)",
         duration: 0.4,
         ease: "power3.out",
       });

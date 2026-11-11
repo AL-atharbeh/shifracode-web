@@ -46,7 +46,7 @@ export default function Process({ dict }: { dict: Dictionary["process"] }) {
           <span
             data-line
             aria-hidden
-            className="absolute bottom-2 start-[15px] top-2 w-px origin-top bg-gradient-to-b from-[#00d4f5] via-[#1fa0f5] to-[#3f4cf5] sm:start-[23px]"
+            className="absolute bottom-2 start-[15px] top-2 w-px origin-top bg-gradient-to-b from-[#2fb4e6] via-[#007ba7] to-[#ff2d95] sm:start-[23px]"
           />
           {dict.steps.map((step, i) => (
             <li key={step.title} data-step className="relative">

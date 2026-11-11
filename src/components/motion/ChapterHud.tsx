@@ -48,7 +48,7 @@ export default function ChapterHud({ chapters }: { chapters: { id: string; label
       <div aria-hidden className="pointer-events-none fixed bottom-[20vh] start-6 top-[20vh] z-40 hidden w-px bg-white/10 lg:block">
         <span
           ref={thread}
-          className="absolute inset-0 origin-top bg-gradient-to-b from-[#00d4f5] to-[#3f4cf5] shadow-[0_0_12px_#22aaf5]"
+          className="absolute inset-0 origin-top bg-gradient-to-b from-[#2fb4e6] to-[#ff2d95] shadow-[0_0_12px_#2fb4e6]"
           style={{ transform: "scaleY(0)" }}
         />
       </div>

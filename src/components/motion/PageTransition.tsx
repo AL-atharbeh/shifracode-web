@@ -221,7 +221,7 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
           className="absolute inset-y-0"
           style={{ left: `${(i * 100) / SHUTTERS}%`, width: `calc(${100 / SHUTTERS}% + 1px)` }}
         >
-          <div data-pt-edge className="absolute inset-0 bg-gradient-to-b from-[#00d4f5] to-[#3f4cf5]" />
+          <div data-pt-edge className="absolute inset-0 bg-gradient-to-b from-[#2fb4e6] to-[#ff2d95]" />
           <div data-pt-shutter className="absolute inset-0 border-x border-white/[0.03] bg-[#040508]" />
         </div>
       ))}
@@ -232,7 +232,7 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
             <div
               aria-hidden
               className="absolute left-1/2 top-[46%] h-[70vmin] w-[70vmin] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-[110px]"
-              style={{ background: "radial-gradient(circle, rgba(16,176,240,0.5), rgba(48,64,240,0.3) 55%, transparent 72%)" }}
+              style={{ background: "radial-gradient(circle, rgba(47,180,230,0.5), rgba(255,45,149,0.3) 55%, transparent 72%)" }}
             />
 
             {/* The brand name sits behind Abu Omar like a poster. */}
@@ -249,7 +249,7 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
               </div>
               <span
                 data-splash-scan
-                className="absolute inset-x-[-30%] h-px bg-gradient-to-r from-transparent via-[#7fe9ff] to-transparent shadow-[0_0_24px_4px_rgba(34,170,245,0.7)]"
+                className="absolute inset-x-[-30%] h-px bg-gradient-to-r from-transparent via-[#7fe9ff] to-transparent shadow-[0_0_24px_4px_rgba(47,180,230,0.7)]"
               />
             </div>
 
@@ -269,7 +269,7 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
 
             <div className="absolute inset-x-6 bottom-6 flex items-end gap-6 sm:inset-x-10" dir="ltr">
               <span className="relative mb-2 block h-px flex-1 overflow-hidden bg-white/10">
-                <span data-splash-bar className="absolute inset-0 origin-left scale-x-0 bg-gradient-to-r from-[#00d4f5] to-[#3f4cf5]" />
+                <span data-splash-bar className="absolute inset-0 origin-left scale-x-0 bg-gradient-to-r from-[#2fb4e6] to-[#ff2d95]" />
               </span>
               <span className="font-mono text-[13px] tabular-nums text-fg/70">
                 {String(count).padStart(3, "0")}
@@ -279,7 +279,7 @@ export default function PageTransition({ copy }: { copy: TransitionCopy }) {
           </>
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-5 px-6 text-center">
-            <span className="relative block h-16 w-16 overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_30%,#10b0f0,#3040f0_70%)] ring-1 ring-white/15">
+            <span className="relative block h-16 w-16 overflow-hidden rounded-full bg-[radial-gradient(circle_at_50%_30%,#2fb4e6,#ff2d95_70%)] ring-1 ring-white/15">
               <Image src="/abu-omar/avatar.webp" alt="" fill sizes="64px" className="object-cover" />
             </span>
             <p data-pt-label className="overflow-hidden pb-2">

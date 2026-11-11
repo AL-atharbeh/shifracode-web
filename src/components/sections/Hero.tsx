@@ -117,7 +117,7 @@ export default function Hero({ lang, dict }: { lang: Locale; dict: Dictionary["h
           <span
             data-chip
             dir="ltr"
-            className="block rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[14px] text-fg/70 shadow-[0_0_40px_rgba(34,170,245,0.15)] backdrop-blur-md"
+            className="block rounded-2xl border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-[14px] text-fg/70 shadow-[0_0_40px_rgba(47,180,230,0.15)] backdrop-blur-md"
           >
             {c.text}
           </span>
@@ -162,7 +162,7 @@ export default function Hero({ lang, dict }: { lang: Locale; dict: Dictionary["h
             data-magnetic="0.4"
             className="group relative overflow-hidden rounded-full bg-fg px-8 py-4 text-[16px] font-semibold text-black"
           >
-            <span className="absolute inset-0 translate-y-full rounded-full bg-gradient-to-r from-[#00d4f5] to-[#3f4cf5] transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:translate-y-0" />
+            <span className="absolute inset-0 translate-y-full rounded-full bg-gradient-to-r from-[#2fb4e6] to-[#ff2d95] transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)] group-hover:translate-y-0" />
             <span className="relative transition-colors duration-500 group-hover:text-white">{dict.ctaPrimary}</span>
           </a>
           <a

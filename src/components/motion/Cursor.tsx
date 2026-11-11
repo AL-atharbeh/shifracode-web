@@ -12,8 +12,8 @@ const subscribeFine = (cb: () => void) => {
 };
 
 /**
- * Custom cursor: a dot that sticks to the pointer and a ring that trails it.
- * Grows over links; over `[data-cursor="<label>"]` it becomes a filled disc
+ * Custom cursor: a dot that sticks to the pointer (the CodeBug trails it).
+ * A ring appears over links; over `[data-cursor="<label>"]` it becomes a filled disc
  * with the label inside. Mouse/trackpad only — touch devices keep nothing.
  */
 export default function Cursor() {
@@ -57,7 +57,7 @@ export default function Cursor() {
       gsap.to(disc.current, {
         scale: labelled ? 2.6 : link ? 1.7 : 1,
         backgroundColor: labelled ? "rgba(47,180,230,1)" : link ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0)",
-        borderColor: labelled ? "rgba(47,180,230,0)" : "rgba(255,255,255,0.55)",
+        borderColor: link && !labelled ? "rgba(255,255,255,0.55)" : "rgba(255,255,255,0)",
         duration: 0.4,
         ease: "power3.out",
       });
@@ -94,7 +94,7 @@ export default function Cursor() {
       <div ref={ring} aria-hidden className="pointer-events-none fixed left-0 top-0 z-[100]">
         <div
           ref={disc}
-          className="absolute -left-5 -top-5 h-10 w-10 rounded-full border border-white/55"
+          className="absolute -left-5 -top-5 h-10 w-10 rounded-full border border-transparent"
         />
         <span
           className={`absolute left-0 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-[13px] font-semibold text-white transition-opacity duration-200 ${

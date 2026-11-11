@@ -11,6 +11,7 @@ import AbuGuide from "@/components/abu-omar/AbuGuide";
 import CodeRain from "@/components/motion/CodeRain";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import Cursor from "@/components/motion/Cursor";
+import CodeBug from "@/components/motion/CodeBug";
 import MotionDirector from "@/components/motion/MotionDirector";
 import PageTransition from "@/components/motion/PageTransition";
 import "../globals.css";
@@ -82,6 +83,7 @@ export default async function LangLayout({ children, params }: LayoutProps<"/[la
             city: site.city.en,
           }}
         />
+        <CodeBug />
         <Cursor />
       </body>
     </html>
